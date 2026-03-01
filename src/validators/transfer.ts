@@ -10,6 +10,7 @@ import {
   ifElse,
   defaultValue,
   isPublicKey,
+  isNaturalNumberLike,
   isNaturalNumberOrZeroLike,
 } from './validators';
 import { TRANSACTION_TYPE } from '@decentralchain/ts-types';
@@ -24,6 +25,7 @@ const transferScheme = {
   amount: isNaturalNumberOrZeroLike,
   attachment: isAttachment,
   fee: isNaturalNumberOrZeroLike,
+  chainId: isNaturalNumberLike,
   timestamp: isNaturalNumberOrZeroLike,
   proofs: ifElse(isArray, defaultValue(true), orEq([undefined])),
 };
